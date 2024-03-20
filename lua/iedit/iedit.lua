@@ -69,9 +69,6 @@ function M.start(ranges,config)
             end
             if not new_text then return end
             old_text=table.concat(new_text,'\n')
-            if vim.fn.undotree(buf).seq_cur~=vim.fn.undotree(buf).seq_last then
-                return
-            end
             if all_same then return end
             vim.cmd.undojoin()
             for _,mark_id in pairs(get()) do
